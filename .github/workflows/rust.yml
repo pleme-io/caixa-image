@@ -152,6 +152,7 @@ jobs:
 
   build_fuzz_cargo-fuzz:
     name: "Fuzz targets (cargo-fuzz)"
+    if: false  # disabled: cargo-fuzz 0.13.x ships rustix 0.36 which no longer builds on current nightly (rustc_attrs scope errors)
     runs-on: ubuntu-latest
     needs: ["clippy"] # only to avoid running on broken builds
     steps:
